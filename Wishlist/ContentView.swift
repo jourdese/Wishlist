@@ -3,7 +3,7 @@
 //  Wishlist
 //
 //  Created by Jourdese Palacio on 8/27/25.
-//  CommitName: Alert Presentation
+//  CommitName: Text Field
 
 import SwiftUI
 import SwiftData
@@ -13,6 +13,7 @@ struct ContentView: View {
     @Query private var wishes: [Wish]
     
     @State private var isAlertShowing: Bool = false
+    @State private var title: String = ""
     
     var body: some View {
         NavigationStack {
@@ -35,7 +36,13 @@ struct ContentView: View {
                 }
             }
             .alert("Create a new wish", isPresented: $isAlertShowing){
+                TextField("Enter a wish", text: $title)
                 
+                Button {
+                    
+                } label: {
+                    Text("Save")
+                }
             }
             .overlay {
                 if wishes.isEmpty {
