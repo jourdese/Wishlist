@@ -3,7 +3,7 @@
 //  Wishlist
 //
 //  Created by Jourdese Palacio on 8/27/25.
-//  CommitName: Text Field
+//  CommitName: Saving Data
 
 import SwiftUI
 import SwiftData
@@ -39,7 +39,8 @@ struct ContentView: View {
                 TextField("Enter a wish", text: $title)
                 
                 Button {
-                    
+                    modelContext.insert(Wish(title: title))
+                    title = ""
                 } label: {
                     Text("Save")
                 }
