@@ -22,6 +22,16 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Wishlist")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing){
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    }
+                }
+            }
             .overlay {
                 if wishes.isEmpty {
                     ContentUnavailableView(
