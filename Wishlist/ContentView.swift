@@ -3,7 +3,7 @@
 //  Wishlist
 //
 //  Created by Jourdese Palacio on 8/27/25.
-//  CommitName: Saving Data
+//  CommitName: Deleting Data
 
 import SwiftUI
 import SwiftData
@@ -22,6 +22,11 @@ struct ContentView: View {
                     wish in Text(wish.title)
                         .font(.title.weight(.light))
                         .padding (.vertical, 2)
+                        .swipeActions{
+                            Button("Delete", role: .destructive){
+                                modelContext.delete(wish)
+                            }
+                        }
                 }
             }
             .navigationTitle("Wishlist")
