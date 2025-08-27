@@ -3,7 +3,7 @@
 //  Wishlist
 //
 //  Created by Jourdese Palacio on 8/27/25.
-//
+//  CommitName: Alert Presentation
 
 import SwiftUI
 import SwiftData
@@ -11,6 +11,8 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var wishes: [Wish]
+    
+    @State private var isAlertShowing: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -25,12 +27,15 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing){
                     Button {
-                        
+                        isAlertShowing.toggle()
                     } label: {
                         Image(systemName: "plus")
                             .imageScale(.large)
                     }
                 }
+            }
+            .alert("Create a new wish", isPresented: $isAlertShowing){
+                
             }
             .overlay {
                 if wishes.isEmpty {
